@@ -5,9 +5,9 @@ import path from 'path';
 const db = new sqlite3.Database(path.join(__dirname, '../../leetcode.db'));
 
 // Promisify database methods
-const dbRun = promisify(db.run.bind(db));
-const dbGet = promisify(db.get.bind(db));
-const dbAll = promisify(db.all.bind(db));
+const dbRun = promisify(db.run.bind(db)) as (sql: string, params: any) => Promise<void>;
+const dbGet = promisify(db.get.bind(db)) as (sql: string, params: any) => Promise<any>;
+const dbAll = promisify(db.all.bind(db)) as (sql: string, params: any) => Promise<any[]>;
 
 export const initDatabase = async () => {
   await dbRun(`

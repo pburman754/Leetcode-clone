@@ -2,7 +2,7 @@ import express from 'express';
 import { problems } from '../data/problems';
 import { executeCode } from '../controllers/codeExecutor';
 import { authMiddleware, AuthRequest } from '../middleware/auth';
-import { dbGet, dbRun } from '../db/database';
+import { dbGet, dbRun, dbAll } from '../db/database';
 
 const router = express.Router();
 
